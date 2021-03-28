@@ -1,6 +1,8 @@
 // import add from './add'
 import subtract from './subtract'
 
+import './style.css'
+
 console.log('hello word')
 
 import('./add')
