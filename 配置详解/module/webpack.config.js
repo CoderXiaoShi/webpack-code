@@ -29,11 +29,6 @@ module.exports = {
                         include: path.resolve('./src'), // 只解析某些模块
                         use: ['style-loader', 'css-loader']
                     },
-                    // {
-                    //     test: /.(css|less)$/,
-                    //     include: path.resolve('./src'), // 只解析某些模块
-                    //     use: ['style-loader', 'css-loader']
-                    // },
                 ]
             }
         ]
