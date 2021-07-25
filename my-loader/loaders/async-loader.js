@@ -9,7 +9,7 @@ const sleep = (num) => new Promise((resolve) => {
     }, num)
 })
 
-const replace = function(source) {
+const replace = function(content) {
     console.log('进入 async-loader.js')
 
     const callback = this.async();
@@ -17,7 +17,7 @@ const replace = function(source) {
     (async () => {
         console.log('开始异步编译')
         await sleep(3000)
-        const result = source.replace(/程序员小石/g, '程序员小石: http://www.xinglong.tech');
+        const result = content.replace(/程序员小石/g, '程序员小石: http://www.xinglong.tech');
         console.log('编译结束')
         callback(null, result);
     })();

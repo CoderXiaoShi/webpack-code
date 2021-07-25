@@ -11,7 +11,7 @@ module.exports = {
             {
                 test: /.js$/,
                 use: [
-                    path.resolve(__dirname, './loaders/async-loader.js'),
+                    path.resolve(__dirname, './loaders/async-loader.js'), //异步 loader
                     path.resolve(__dirname, './loaders/replace-loader.js'),
                 ]
             }
