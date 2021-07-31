@@ -1,15 +1,23 @@
+
+/*
+    必须是一个类
+    必须要有一个 apply 函数
+    要调用 complier API 来影响打包结果
+*/
+
 class LicenseWebpackPlugin {
-    constructor(params) {
-        console.log('load plugin, params: ', params);
+    constructor(parmas) {
+        console.log(parmas)
     }
     apply(complier) {
-        complier.hooks.emit.tapAsync('LicenseWebpackPlugin', (complation, cb) => {
-            console.log(complation.assets);
-            complation.assets['LICENSE'] = {
+        complier.hooks.emit.tapAsync('LicenseWebpackPlugin', (compliation, cb) => {
+            console.log(compliation.assets)
+            compliation.assets['LICENSE'] = {
                 source: function() {
-                    return `The MIT License
+                    return `
+                    The MIT License (MIT)
 
-Copyright JS Foundation and other contributors
+Copyright (c) 2013-present, Yuxi (Evan) You
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -27,13 +35,14 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.`
+THE SOFTWARE.
+
+`
                 }
             }
-            cb()
+            cb();
         })
     }
 }
 
 module.exports = LicenseWebpackPlugin;
- 

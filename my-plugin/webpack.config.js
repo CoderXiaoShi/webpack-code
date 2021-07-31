@@ -1,4 +1,5 @@
 const path = require('path');
+const LicenseWebpackPlugin = require('./plugins/license-webpack-plugin')
 
 module.exports = {
     entry: './src/index.js',
@@ -8,6 +9,6 @@ module.exports = {
     },
     mode: 'development',
     plugins: [
-        
+        new LicenseWebpackPlugin('MIT')
     ]
 }
