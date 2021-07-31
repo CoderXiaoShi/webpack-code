@@ -7,14 +7,6 @@ module.exports = {
         filename: 'js/[name]_[chunkhash:5].js',
         path: path.resolve(__dirname, './dist'),
     },
-    resolve: {  // 如何解析模块: 如何找到模块
-        alias: {    // 路径别名
-            '@css': path.resolve(__dirname, './src/access/css')
-        },
-        extensions: ['.js', '.css'],
-        // 定位到模块的准确位置
-        modules: [ path.resolve(__dirname, '../../node_modules') ]
-    },
     module: {
         rules: [
             {
@@ -59,14 +51,15 @@ module.exports = {
         clientLogLevel: 'none', 
         // 安静: 保证控制台的清洁, 尽量只输出我们自己的 console
         quiet: true,
-        // /api/sentences
+
+        // /api/login
             // http://localhost:8080/login
         // 服务端代理
         proxy: {
             '/api': {
                 target: 'http://poetry.apiopen.top',
                 pathRewrite: {
-                    '^/api': '/sentences' // 发送请求时, 把 /api 替换为 ''
+                    '^/api': '' // 发送请求时, 把 /api 替换为 ''
                 }
             }
         },

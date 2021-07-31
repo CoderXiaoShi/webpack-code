@@ -5,14 +5,17 @@ const sleep = num => new Promise((resolve) => {
     }, num)
 })
 
-module.exports = function(content) {
+const replace = function(content) {
+    console.log('进入 async-loader.js')
+
     const callback = this.async();
-    ;(async () => {
+
+    (async () => {
+        console.log('开始异步编译')
         await sleep(3000)
-        content = content.replace(/程序员小石/g, '程序员小石: www.xinglong.tech');
-        callback(
-            null,
-            content
-        )
+        const result = content.replace(/程序员小石/g, '程序员小石: http://www.xinglong.tech');
+        console.log('编译结束')
+        callback(null, result);
     })();
 }
+module.exports = replace;
